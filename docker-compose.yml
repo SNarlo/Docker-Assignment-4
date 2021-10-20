@@ -8,6 +8,9 @@ services:
       - "3000:3000"
     networks:
       - service-link
+    volumes:
+      - ./client/:usr/src/app
+      - /usr/src/app/node_modules
   backend:
     image: api-server
     build: ./server/
@@ -17,6 +20,9 @@ services:
       - service-link
     depends_on: 
       - mongo
+    volumes:
+      - ./server/:usr/src/app
+      - /usr/src/app/node_modules
   mongo: 
     image: mongo:4.4-bionic
     ports:
