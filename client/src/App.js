@@ -1,5 +1,5 @@
 import './App.css';
-import BookingForm from './components/forms/date-and-time-form';
+import BookingForm from './components/forms/BookingForm';
 
 function App() {
   return (
