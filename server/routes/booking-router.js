@@ -18,7 +18,7 @@ router.route('/add').post((req, res) => {
     const firstName = req.body.FirstName
     const lastName = req.body.LastName
     const bookingWith = req.body.BookingWith
-    const bookingDate = req.body.BookingDate
+    const bookingDate = Date.parse(req.body.BookingDate)
     const bookingTime = req.body.BookingTime
 
     const newBooking = new Booking({

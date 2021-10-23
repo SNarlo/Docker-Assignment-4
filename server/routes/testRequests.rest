@@ -5,9 +5,13 @@ content-type: application/json
     "FirstName": "Sebastian",
     "LastName": "Narloch", 
     "BookingWith": "James",
-    "BookingDate": "2021-10-21",
+    "BookingDate": "2021-11-21",
     "BookingTime": "11:00"
 }
 
 ###
 GET http://localhost:5000/bookings/
+
+
+### 
+GET http://localhost:5000/bookings/61736f2cce0923f238ed2136
