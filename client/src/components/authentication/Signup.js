@@ -41,7 +41,6 @@ const SignUp = () => {
         } catch {
             handleVisibleError('Failed to create an account')
         }
-
         setLoading(false)
     }
 
