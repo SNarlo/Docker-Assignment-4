@@ -2,20 +2,18 @@ import React, {useRef, useState} from 'react'
 import {Card, Button, Form, Alert} from 'react-bootstrap'
 import {Link, useHistory} from 'react-router-dom'
 import './Login.css'
-import {useAuth} from '../../contexts/AuthContext'
+import { useAuth } from '../../contexts/AuthContext'
 
 const Login = () => {
 
     const emailRef = useRef()
     const passwordRef = useRef()
-    const { login } = useAuth()
+    const login = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [alertVisible, setAlertVisible] = useState(false)
     const history = useHistory()
 
-
-    
     const handleVisibleError = () => {
         setAlertVisible(true)
         setError('Failed to log in')
@@ -23,7 +21,6 @@ const Login = () => {
             setAlertVisible(false)
         }, 2000)
     }
-
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -39,7 +36,6 @@ const Login = () => {
 
         setLoading(false)
     }
-
 
     return (
         <div className='login-form-container'> 

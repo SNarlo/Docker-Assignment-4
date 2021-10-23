@@ -1,14 +1,24 @@
 import './App.css';
-import BookingForm from './components/forms/BookingForm';
 import Login from './components/authentication/Login';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import BookingDashboard from './components/dashboards/BookingDashboard';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import SignUp from './components/authentication/Signup';
+import { ForgotPassword } from './components/authentication/ForgotPassword';
+import { AuthProvider } from './contexts/AuthContext';
+import { PrivateRoute } from './Routes/PrivateRoute';
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Route path='/login' component={Login} />
-        <BookingForm/>
+        <AuthProvider>
+          <Switch>
+            <PrivateRoute exact path='/' component={BookingDashboard} />
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={SignUp} />
+            <Route path='/forgot-password' component={ForgotPassword} />
+          </Switch>
+        </AuthProvider>
       </div>
     </Router>
     
