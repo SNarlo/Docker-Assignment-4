@@ -1,10 +1,13 @@
 POST http://localhost:5000/bookings/add HTTP/1.1
+content-type: application/json
 
-Content-Type: application/json
 {
     "FirstName": "Sebastian",
-    "LastName" : "Narloch", 
-    "BookingWith" : "James",
-    "BookingDate" : "10/21/2021",
-    "BookingTime" : "10:00"
+    "LastName": "Narloch", 
+    "BookingWith": "James",
+    "BookingDate": "2021-10-21",
+    "BookingTime": "11:00"
 }
+
+###
+GET http://localhost:5000/bookings/

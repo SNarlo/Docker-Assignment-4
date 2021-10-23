@@ -7,25 +7,32 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: '+ err))
 })
 
+router.route('/:id').get((req, res) => {
+    Booking.findById(req.params.id)
+    .then(booking => res.json(booking))
+    .catch(err => res.status(400).json('Error: ' + err))
+})
+
 
 router.route('/add').post((req, res) => {
-    const FirstName = req.body.FirstName
-    const LastName = req.body.LastName
-    const BookingWith = req.body.BookingWith
-    const BookingDate = new Date(req.body.BookingDate)
-    const BookingTime = req.body.BookingTime
+    const firstName = req.body.FirstName
+    const lastName = req.body.LastName
+    const bookingWith = req.body.BookingWith
+    const bookingDate = req.body.BookingDate
+    const bookingTime = req.body.BookingTime
 
     const newBooking = new Booking({
-        FirstName,
-        LastName,
-        BookingWith,
-        BookingDate,
-        BookingTime
-    })
+        FirstName : firstName,
+        LastName : lastName,
+        BookingWith : bookingWith,
+        BookingDate : bookingDate,
+        BookingTime : bookingTime
+    });
 
     newBooking.save()
     .then(() => res.json('Booking added'))
     .catch(err => res.status(400).json('Error: '+ err))
 })
+
 
 module.exports = router

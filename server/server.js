@@ -13,7 +13,7 @@ app.use(express.json())
 
 const bookingRouter = require('./routes/booking-router')
 
-// Loads all bookings
+// Loads the bookings router
 app.use('/bookings', bookingRouter)
 
 app.listen(port, () => {

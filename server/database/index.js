@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const connectionString = process.env.MONGODB_URI
 
-mongoose.connect(connectionString, { useNewUrlParser: true }).catch((e) => {
+mongoose.connect(connectionString, { useNewUrlParser: true}).catch((e) => {
   console.error('Connection error', e.message);
 });
 
