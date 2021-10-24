@@ -30,8 +30,9 @@ const Login = () => {
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value)
             history.push('/')
-        } catch {
+        } catch(err) {
             handleVisibleError()
+            console.log(err)
         }
 
         setLoading(false)

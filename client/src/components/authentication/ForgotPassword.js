@@ -32,8 +32,9 @@ export const ForgotPassword = () => {
         setLoading(true)
         await forgotPassword(emailRef.current.value)
         setMessage('Check your inbox for further instructions')
-    } catch {
+    } catch(err) {
         handleVisibleError()
+        console.log(err)
     }
 
     setLoading(false)

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:5000/users/add'
+const baseUrl = 'http://localhost:5000/users'
 
 const getAllUsers = () => {
     const req = axios.get(baseUrl)
@@ -13,7 +13,7 @@ const getUser = (id) => {
 }
 
 const createUser = (newUser) => {
-    const req = axios.post(baseUrl, newUser)
+    const req = axios.post(`${baseUrl}/add`, newUser)
     return req.then(res => res.data)
 }
 
