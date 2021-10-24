@@ -4,7 +4,7 @@
   "description": "A booking system for a service based business",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "Sebastian Narloch",
   "license": "MIT",

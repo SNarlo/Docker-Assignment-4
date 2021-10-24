@@ -2,7 +2,9 @@ version: "3.3"
 services:
   react-app:
     image: react-app
-    build: ./client/
+    build: 
+      context: ./client
+      dockerfile: Dockerfile
     stdin_open: true
     ports: 
       - "3000:3000"
@@ -13,7 +15,9 @@ services:
       - /usr/src/app/node_modules
   backend:
     image: api-server
-    build: ./server/
+    build:
+      context: ./server
+      dockerfile: Dockerfile
     ports:
       - "5000:5000"
     networks:
