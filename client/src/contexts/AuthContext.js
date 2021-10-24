@@ -1,5 +1,6 @@
 import React, {useContext, useState, useEffect} from 'react'
 import {auth} from '../firebase'
+import userApis from '../apis/users';
 
 const AuthContext = React.createContext();
 
@@ -11,11 +12,25 @@ export const AuthProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState()
     const [loading, setLoading] = useState(true)
 
-    const signup = (email, password) => {
-        return auth.createUserWithEmailAndPassword(email, password)
+    const signup = (email, password, firstName, lastName) => {
+        
+        
 
-        // Need to add user to database
+
+        return auth.createUserWithEmailAndPassword(email, password)
+        .then(user => {
+            const newUser = {
+                "_id": user.user.uid,
+                "FirstName": firstName,
+                "LastName": lastName,
+                "Email": email
+            }
+            console.log(newUser)
+            userApis.createUser(newUser)
+        })
     }
+        // Create a user in mongo when you sign up
+        
 
     const login = (email, password) => {
         return auth.signInWithEmailAndPassword(email, password)

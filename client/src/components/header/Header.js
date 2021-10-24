@@ -16,7 +16,6 @@ const Header = (props) => {
                     <img src={Logo} alt='brick & mortar logo'></img>
                 </div>
                 <div className='username-container'>
-                    <h2></h2>
                     <Link to='/login' onClick={logOut}>Log Out</Link>
                 </div>
             </Navbar>

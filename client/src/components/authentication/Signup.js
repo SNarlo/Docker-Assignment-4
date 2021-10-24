@@ -36,10 +36,11 @@ const SignUp = () => {
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await signup(emailRef.current.value, passwordRef.current.value, firstNameRef.current.value, lastNameRef.current.value)
             history.push('/login')
         } catch {
             handleVisibleError('Failed to create an account')
+            (err => console.log(err))
         }
         setLoading(false)
     }
