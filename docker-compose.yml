@@ -1,4 +1,4 @@
-version: "3.5"
+version: "3.3"
 services:
   react-app:
     image: react-app
@@ -9,7 +9,7 @@ services:
     networks:
       - service-link
     volumes:
-      - ./client/:usr/src/app
+      - ./client/:/usr/src/app
       - /usr/src/app/node_modules
   backend:
     image: api-server
@@ -21,7 +21,7 @@ services:
     depends_on: 
       - mongo
     volumes:
-      - ./server/:usr/src/app
+      - ./server/:/usr/src/app
       - /usr/src/app/node_modules
   mongo: 
     image: mongo:4.4-bionic
@@ -31,7 +31,6 @@ services:
       - service-link
     volumes:
       - mongo-data:/data/db
-
 networks:
   service-link:
     driver: bridge
