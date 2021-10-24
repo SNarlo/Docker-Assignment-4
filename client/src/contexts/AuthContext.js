@@ -13,6 +13,8 @@ export const AuthProvider = ({children}) => {
 
     const signup = (email, password) => {
         return auth.createUserWithEmailAndPassword(email, password)
+
+        // Need to add user to database
     }
 
     const login = (email, password) => {

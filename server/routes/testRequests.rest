@@ -15,3 +15,19 @@ GET http://localhost:5000/bookings/
 
 ### 
 GET http://localhost:5000/bookings/61736f2cce0923f238ed2136
+
+
+
+### 
+POST http://localhost:5000/users/add HTTP/1.1
+Content-Type: application/json
+
+{
+    "_id": "123456",
+    "FirstName": "Sebastian",
+    "LastName": "Narloch"
+}
+
+
+###
+GET http://localhost:5000/bookings/123456
