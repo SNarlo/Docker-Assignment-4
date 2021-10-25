@@ -4,6 +4,7 @@
   "description": "A booking system for a service based business",
   "main": "index.js",
   "scripts": {
+    "preinstall": "npm i nodemon -g",
     "start": "nodemon server.js"
   },
   "author": "Sebastian Narloch",
