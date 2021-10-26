@@ -3,7 +3,8 @@ import { ToggleButton } from 'react-bootstrap'
 import { ButtonGroup } from 'react-bootstrap'
 import './BookingForm.css' 
 import { Card, Button, Form} from 'react-bootstrap'
-// import bookingApis from '../../apis/bookings'
+import bookingApis from '../../apis/bookings'
+import userApis from '../../apis/users'
 import {useAuth} from '../../contexts/AuthContext'
 
 const BookingForm = () => {
@@ -20,6 +21,34 @@ const BookingForm = () => {
         { name : '18:00', value: '9'},
     ]
 
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+
+        const newBooking = {
+            FirstName : firstName,
+            LastName : lastName,
+            BookingWith : staffRef.current.value,
+            BookingDate : dateRef.current.value,
+            BookingTime : clockValue
+        }
+
+        console.log(newBooking)
+    }
+
+    const timeFunctions = value => {
+        setTimeValue(value)
+        const time = times.filter(time => time['value'] === value)
+        setClockValue(time[0].name)
+    }
+
+    const {currentUser} = useAuth()
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const dateRef = useRef()
+    const staffRef = useRef()
+    const [timeValue, setTimeValue] = useState(0)
+    const [clockValue, setClockValue] = useState('')
+
     useEffect(() => {
         userApis.getUser(currentUser.uid)
         .then(user => {
@@ -29,28 +58,6 @@ const BookingForm = () => {
         .catch(err => console.log(err))
     }, [currentUser.uid])
 
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-
-        const newBooking = {
-            FirstName : currentUser.FirstName,
-            LastName : currentUser.LastName,
-            BookingWith : staffRef.current.value,
-            BookingDate : dateRef.current.value,
-            BookingTime : times.name
-        }
-
-        console.log(newBooking)
-    }
-
-    const {currentUser} = useAuth()
-
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    const dateRef = useRef()
-    // const timeRef = useRef()
-    const staffRef = useRef()
-    const [timeValue, setTimeValue] = useState(0)
     
     return (
         <div className='booking-form-container'>
@@ -76,7 +83,7 @@ const BookingForm = () => {
                                             className='time-value'
                                             value={time.value}
                                             checked={timeValue === time.value}
-                                            onChange={(e) => setTimeValue(e.currentTarget.value)}
+                                            onChange={(e) => timeFunctions(e.currentTarget.value)}
                                         >
                                             {time.name}
                                         </ToggleButton>
