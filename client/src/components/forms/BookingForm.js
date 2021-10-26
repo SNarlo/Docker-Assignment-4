@@ -6,6 +6,7 @@ import { Card, Button, Form} from 'react-bootstrap'
 import bookingApis from '../../apis/bookings'
 import userApis from '../../apis/users'
 import {useAuth} from '../../contexts/AuthContext'
+import { Link } from 'react-router-dom'
 
 const BookingForm = () => {
     
@@ -24,6 +25,9 @@ const BookingForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        setDate(dateRef.current.value)
+        setStaff(staffRef.current.value)
+
         const newBooking = {
             FirstName : firstName,
             LastName : lastName,
@@ -32,6 +36,7 @@ const BookingForm = () => {
             BookingTime : clockValue
         }
 
+        console.log(newBooking)
         bookingApis.createBooking(newBooking)
     }
 
@@ -42,10 +47,13 @@ const BookingForm = () => {
     }
 
     const {currentUser} = useAuth()
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
     const dateRef = useRef()
     const staffRef = useRef()
+
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [date, setDate] = useState('')
+    const [staff, setStaff] = useState('')
     const [timeValue, setTimeValue] = useState(0)
     const [clockValue, setClockValue] = useState('')
 
@@ -61,7 +69,7 @@ const BookingForm = () => {
     
     return (
         <div className='booking-form-container'>
-                <Form  onSubmit={handleSubmit} className='booking-form-body'>
+                <Form className='booking-form-body'>
                     <h1 className='form-title'>make a booking</h1>
                     <Card className='card' id='calendar-card'>
                         <Form.Group>
@@ -99,7 +107,9 @@ const BookingForm = () => {
                                 </Form.Control>
                             </Form.Group>
                         </Card.Body>
-                        <Button type='Submit'>Make a Booking!</Button>
+                        <Link to={{pathname:"/thank-you", state: {firstName: firstName, lastName: lastName, time: clockValue, date: date, staff: staff}}}>
+                            <Button onClick={handleSubmit}>Make a Booking!</Button>
+                        </Link>
                     </Card>
                 </Form>
         </div>

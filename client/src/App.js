@@ -6,6 +6,7 @@ import SignUp from './components/authentication/Signup';
 import { ForgotPassword } from './components/authentication/ForgotPassword';
 import { AuthProvider } from './contexts/AuthContext';
 import { PrivateRoute } from './Routes/PrivateRoute';
+import ThankYouPage from './components/pages/ThankYouPage';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path='/login' component={Login} />
             <Route path='/signup' component={SignUp} />
             <Route path='/forgot-password' component={ForgotPassword} />
+            <Route path='/thank-you' render={ThankYouPage} />
           </Switch>
         </AuthProvider>
       </div>

@@ -4,7 +4,7 @@ content-type: application/json
 {
     "FirstName": "Sebastian",
     "LastName": "Narloch", 
-    "BookingWith": "James",
+    "BookingWith": "Sarah",
     "BookingDate": "2021-11-21",
     "BookingTime": "11:00"
 }
