@@ -26,7 +26,7 @@ services:
       - mongo
     volumes:
       - ./server/:/usr/src/app
-      - /usr/src/app/node_modulesg
+      - /usr/src/app/node_modules
   mongo: 
     image: mongo:4.4-bionic
     ports:
