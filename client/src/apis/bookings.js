@@ -13,7 +13,7 @@ const getBooking = (id) => {
 }
 
 const createBooking = (newBooking) => {
-    const req = axios.post(baseUrl, newBooking)
+    const req = axios.post(`${baseUrl}/add`, newBooking)
     return req.then(res => res.data)
 }
 

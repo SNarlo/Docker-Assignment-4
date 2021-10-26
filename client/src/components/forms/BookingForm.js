@@ -32,7 +32,7 @@ const BookingForm = () => {
             BookingTime : clockValue
         }
 
-        console.log(newBooking)
+        bookingApis.createBooking(newBooking)
     }
 
     const timeFunctions = value => {
@@ -83,8 +83,7 @@ const BookingForm = () => {
                                             className='time-value'
                                             value={time.value}
                                             checked={timeValue === time.value}
-                                            onChange={(e) => timeFunctions(e.currentTarget.value)}
-                                        >
+                                            onChange={(e) => timeFunctions(e.currentTarget.value)}>
                                             {time.name}
                                         </ToggleButton>
                                     ))}
