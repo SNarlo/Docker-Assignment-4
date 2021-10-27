@@ -13,10 +13,6 @@ export const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
 
     const signup = (email, password, firstName, lastName) => {
-        
-        
-
-
         return auth.createUserWithEmailAndPassword(email, password)
         .then(user => {
             const newUser = {
@@ -25,12 +21,10 @@ export const AuthProvider = ({children}) => {
                 "LastName": lastName,
                 "Email": email
             }
-            console.log(newUser)
             userApis.createUser(newUser)
+            // Create a user in mongo when you sign up
         })
     }
-        // Create a user in mongo when you sign up
-        
 
     const login = (email, password) => {
         return auth.signInWithEmailAndPassword(email, password)

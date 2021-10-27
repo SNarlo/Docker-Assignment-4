@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react'
-import {Card, Button, Form, Row, Alert} from 'react-bootstrap'
+import { Card, Button, Form, Row, Alert } from 'react-bootstrap'
 import './Signup.css'
-import {useAuth} from '../../contexts/AuthContext'
+import { useAuth } from '../../contexts/AuthContext'
 import { useHistory } from 'react-router-dom'
 
 const SignUp = () => {

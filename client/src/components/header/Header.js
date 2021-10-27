@@ -1,8 +1,8 @@
 import './Header.css'
 import React, {useState, useEffect} from 'react'
-import { Navbar } from 'react-bootstrap'
+import { Navbar, Button } from 'react-bootstrap'
 import Logo from '../../assets/brick-&-mortar-logo.png'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import userApis from '../../apis/users'
 
@@ -22,15 +22,14 @@ const Header = () => {
 
 
      // Logs the user out of the booking app
-     async function handleLogout() {
+     const handleLogout = () => {
         try {
-            await logOut()
+            logOut()
             history.push('/login')
         } catch(err) {
             console.log(err)
         }
     }
-
 
     return (
         <div>
@@ -40,7 +39,7 @@ const Header = () => {
                 </div>
                 <div className='username-container'>
                     <h2>{`${currentAuthUser.FirstName} ${currentAuthUser.LastName}`}</h2>
-                    <Link to='/login' onClick={() => handleLogout}>Log Out</Link>
+                    <Button onClick={handleLogout}>Log Out</Button>
                 </div>
             </Navbar>
         </div>
@@ -48,3 +47,5 @@ const Header = () => {
 }
 
 export default Header
+
+

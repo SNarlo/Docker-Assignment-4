@@ -6,7 +6,7 @@ import { Card, Button, Form} from 'react-bootstrap'
 import bookingApis from '../../apis/bookings'
 import userApis from '../../apis/users'
 import {useAuth} from '../../contexts/AuthContext'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const BookingForm = () => {
     
@@ -22,11 +22,29 @@ const BookingForm = () => {
         { name : '18:00', value: '9'},
     ]
 
+    const history = useHistory()
+    const {currentUser} = useAuth()
+    const dateRef = useRef()
+    const staffRef = useRef()
+
+    const [firstName, setFirstName] = useState('')
+    const [lastName, setLastName] = useState('')
+    const [timeValue, setTimeValue] = useState(0)
+    const [clockValue, setClockValue] = useState('')
+
+
+    useEffect(() => {
+        userApis.getUser(currentUser.uid)
+        .then(user => {
+            setFirstName(user.FirstName)
+            setLastName(user.LastName)
+        })
+        .catch(err => console.log(err))
+    }, [currentUser.uid])
+
+
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        // setDate(dateRef.current.value)
-        // setStaff(staffRef.current.value)
 
         const newBooking = {
             FirstName : firstName,
@@ -36,7 +54,6 @@ const BookingForm = () => {
             BookingTime : clockValue
         }
 
-        console.log(newBooking)
         bookingApis.createBooking(newBooking)
         history.push({
             pathname:"/thank-you", 
@@ -56,28 +73,6 @@ const BookingForm = () => {
         setClockValue(time[0].name)
     }
 
-    const history = useHistory()
-    const {currentUser} = useAuth()
-    const dateRef = useRef()
-    const staffRef = useRef()
-
-    const [firstName, setFirstName] = useState('')
-    const [lastName, setLastName] = useState('')
-    // const [date, setDate] = useState('')
-    // const [staff, setStaff] = useState('')
-    const [timeValue, setTimeValue] = useState(0)
-    const [clockValue, setClockValue] = useState('')
-
-    useEffect(() => {
-        userApis.getUser(currentUser.uid)
-        .then(user => {
-            setFirstName(user.FirstName)
-            setLastName(user.LastName)
-        })
-        .catch(err => console.log(err))
-    }, [currentUser.uid])
-
-    
     return (
         <div className='booking-form-container'>
                 <Form onSubmit={handleSubmit} className='booking-form-body'>
