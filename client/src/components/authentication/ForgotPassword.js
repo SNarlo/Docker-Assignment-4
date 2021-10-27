@@ -42,14 +42,10 @@ export const ForgotPassword = () => {
 
 
     return (
-        <div className='forgot-password-form-container'> 
-            <Card id='forgot-password-card'>
-                <Card.Body id='forgot-password-card-body'>
-                    <div id='create-account-text-container'>
-                        <div className='horizontal-line'></div>
-                        <p id='create-text'>Reset Password By Email</p>
-                        <div className='horizontal-line'></div>         
-                    </div>
+        <div className='form-container'> 
+            <Card className='form-card'>
+                <Card.Body className='form-card-body'>
+                    <h2 className='form-header'>Reset Password By Email</h2>
                     {error && alertVisible && <Alert Fade='true' variant='danger' style={{marginTop:"5%"}}>{error}</Alert>}
                     {message &&  <Alert Fade='true' variant='success' style={{marginTop:"5%"}}>{message}</Alert>}
                     <Form onSubmit={handleSubmit} id='form'>
@@ -58,8 +54,11 @@ export const ForgotPassword = () => {
                             <Form.Control type='text' ref={emailRef} required/>
                         </Form.Group>
                         <br></br>
+                        <Form.Group className='links'>
                         <span><Link class='form-links' to='/Login'>Return to Log In</Link></span>
-                        <Button disabled={loading} id='submit-button' type='Submit'>Reset Password</Button>
+                        <Button disabled={loading} id='submit-button' type='Submit'>Reset Password</Button> 
+                        </Form.Group>
+                        
                     </Form>
                 </Card.Body>
             </Card>

@@ -1,7 +1,6 @@
 import './ThankYouPage.css'
 import React from 'react'
 import { Card, Button } from 'react-bootstrap'
-import Logo from '../../assets/brick-&-mortar-logo.png'
 import Header from '../header/Header'
 
 const ThankYouPage = (props) => {

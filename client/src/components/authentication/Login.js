@@ -39,14 +39,10 @@ const Login = () => {
     }
 
     return (
-        <div className='login-form-container'> 
-            <Card id='login-card'>
-                <Card.Body id='login-card-body'>
-                    <div id='create-account-text-container'>
-                        <div className='horizontal-line'></div>
-                        <p id='create-text'>Or log in with email</p>
-                        <div className='horizontal-line'></div>         
-                    </div>
+        <div className='form-container'> 
+            <Card className='form-card'>
+                <Card.Body className='form-card-body'>
+                    <h2 className='form-header'>Log into brick & mortar</h2>
                     {error && alertVisible && <Alert variant='danger'>{error}</Alert>}
                     <Form onSubmit={handleSubmit} id='form'>
                         <Form.Group id='email'>
@@ -58,9 +54,11 @@ const Login = () => {
                             <Form.Control type='password' ref={passwordRef} required/>
                         </Form.Group>
                         <br></br>
-                        <span><Link className='form-links' to='/forgot-password'>Forgot password?</Link></span>
-                        <span id='not-registered'>Not registered yet? <Link className='form-links' to='/signup'>Create an account</Link></span>
                         <Button disabled={loading} id='submit-button' type='Submit'>Sign in</Button>
+                        <Form.Group className='links'>
+                            <Link className='form-links' to='/forgot-password'>Forgot password?</Link>
+                            <span id='not-registered'>Not registered yet? <Link className='form-links' to='/signup'>Create an account</Link></span>
+                        </Form.Group>
                     </Form>
                 </Card.Body>
             </Card>

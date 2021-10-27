@@ -2,7 +2,7 @@ import React, {useRef, useState} from 'react'
 import { Card, Button, Form, Row, Alert } from 'react-bootstrap'
 import './Signup.css'
 import { useAuth } from '../../contexts/AuthContext'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
 const SignUp = () => {
 
@@ -47,14 +47,11 @@ const SignUp = () => {
 
 
     return (
-        <div className='sign-up-form-container'> 
-            <Card id='sign-up-card'>
-                <Card.Body id='sign-up-card-body'>
-                    <div id='create-account-text-container'>
-                        <div className='horizontal-line'></div>
-                        <p id='create-text'>Create an account</p>
-                        <div className='horizontal-line'></div>         
-                    </div>
+        <div className='form-container'> 
+            <Card className='form-card'>
+            <Link className='form-links' to='/login'>Back to Login</Link>
+                <Card.Body className='form-card-body'>
+                    <h2 className='form-header'>Create an Account</h2>
                     {error && alertVisible && <Alert variant='danger'>{error}</Alert>}
                     <Form onSubmit={handleSubmit} id='form'>
                         <Row className='g-2'>

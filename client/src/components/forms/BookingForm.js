@@ -76,18 +76,18 @@ const BookingForm = () => {
     return (
         <div className='booking-form-container'>
                 <Form onSubmit={handleSubmit} className='booking-form-body'>
-                    <h1 className='form-title'>make a booking</h1>
-                    <Card className='card' id='calendar-card'>
-                        <Form.Group>
-                            <Form.Label>Select a Date</Form.Label>
-                            <Form.Control type='date' ref={dateRef}/>
-                        </Form.Group>
-                    </Card>
-                    <h1 className='form-title'>select a time</h1>
-                    <Card className='card' id='time-slot-card'>
-                        <Card.Body className='times'>
-                           <Form.Check required='true'>
-                                <ButtonGroup>
+                    <h1 id='booking-form-title'>make a booking</h1>
+              
+                    <Card className='card' id='booking-card'>
+                        <h3 className='form-title'>booking details</h3>
+                        <Card.Body className='booking-card-body'>
+                            <Form.Group>
+                                <Form.Label className='booking-form-label'>Select a Date</Form.Label>
+                                <Form.Control type='date' ref={dateRef}/>
+                            </Form.Group>
+                            <Form.Group className='booking-times' required='true'>
+                                <Form.Label className='booking-form-label'>Select a Time</Form.Label>
+                                <ButtonGroup className='button-group'>
                                     {times.map((time, key) => (
                                         <ToggleButton 
                                             key={key}
@@ -102,9 +102,9 @@ const BookingForm = () => {
                                         </ToggleButton>
                                     ))}
                                 </ButtonGroup>
-                           </Form.Check>
+                            </Form.Group>
                             <Form.Group>
-                                <Form.Label>Who would you like you booking with?</Form.Label>
+                                <Form.Label className='booking-form-label'>Who would you like you booking with?</Form.Label>
                                 <Form.Control as='select' ref={staffRef}>
                                     <option>Select a staff member</option>
                                     <option value="Tom">Tom</option>
@@ -112,8 +112,8 @@ const BookingForm = () => {
                                     <option value="James">James</option>
                                 </Form.Control>
                             </Form.Group>
+                            <Button id='booking-form-submit-btn' type='Submit' >Make a Booking!</Button>
                         </Card.Body>
-                        <Button type='Submit' >Make a Booking!</Button>
                     </Card>
                 </Form>
         </div>

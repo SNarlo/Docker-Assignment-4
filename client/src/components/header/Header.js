@@ -33,13 +33,13 @@ const Header = () => {
 
     return (
         <div>
-            <Navbar>
+            <Navbar className='header'>
                 <div className='logo-container'>
                     <img src={Logo} alt='brick & mortar logo'></img>
                 </div>
                 <div className='username-container'>
-                    <h2>{`${currentAuthUser.FirstName} ${currentAuthUser.LastName}`}</h2>
-                    <Button onClick={handleLogout}>Log Out</Button>
+                    <h2 id='username-header'>{`${currentAuthUser.FirstName} ${currentAuthUser.LastName}`}</h2>
+                    <Button id='header-logout-button' onClick={handleLogout}>Log Out</Button>
                 </div>
             </Navbar>
         </div>
