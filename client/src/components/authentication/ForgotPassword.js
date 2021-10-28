@@ -8,7 +8,7 @@ import {useAuth} from '../../contexts/AuthContext'
 export const ForgotPassword = () => {
 
     const emailRef = useRef()
-    const forgotPassword = useAuth()
+    const { forgotPassword } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [alertVisible, setAlertVisible] = useState(false)
@@ -46,8 +46,8 @@ export const ForgotPassword = () => {
             <Card className='form-card'>
                 <Card.Body className='form-card-body'>
                     <h2 className='form-header'>Reset Password By Email</h2>
-                    {error && alertVisible && <Alert Fade='true' variant='danger' style={{marginTop:"5%"}}>{error}</Alert>}
-                    {message &&  <Alert Fade='true' variant='success' style={{marginTop:"5%"}}>{message}</Alert>}
+                    {error && alertVisible && <Alert fade='true' variant='danger' style={{marginTop:"5%"}}>{error}</Alert>}
+                    {message &&  <Alert fade='true' variant='success' style={{marginTop:"5%"}}>{message}</Alert>}
                     <Form onSubmit={handleSubmit} id='form'>
                         <Form.Group id='email'>
                             <Form.Label>Email</Form.Label>
@@ -55,7 +55,7 @@ export const ForgotPassword = () => {
                         </Form.Group>
                         <br></br>
                         <Form.Group className='links'>
-                        <span><Link class='form-links' to='/Login'>Return to Log In</Link></span>
+                        <span><Link className='form-links' to='/Login'>Return to Log In</Link></span>
                         <Button disabled={loading} id='submit-button' type='Submit'>Reset Password</Button> 
                         </Form.Group>
                         
