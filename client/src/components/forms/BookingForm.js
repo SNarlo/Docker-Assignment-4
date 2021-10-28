@@ -83,13 +83,14 @@ const BookingForm = () => {
                         <Card.Body className='booking-card-body'>
                             <Form.Group>
                                 <Form.Label className='booking-form-label'>Select a Date</Form.Label>
-                                <Form.Control type='date' ref={dateRef}/>
+                                <Form.Control type='date' ref={dateRef} required='true'/>
                             </Form.Group>
                             <Form.Group className='booking-times' required='true'>
                                 <Form.Label className='booking-form-label'>Select a Time</Form.Label>
                                 <ButtonGroup className='button-group'>
                                     {times.map((time, key) => (
                                         <ToggleButton 
+                                            required='true'
                                             key={key}
                                             id={`time-${key}`}
                                             type='radio'
@@ -105,7 +106,7 @@ const BookingForm = () => {
                             </Form.Group>
                             <Form.Group>
                                 <Form.Label className='booking-form-label'>Who would you like you booking with?</Form.Label>
-                                <Form.Control as='select' ref={staffRef}>
+                                <Form.Control as='select' ref={staffRef} required='true'>
                                     <option>Select a staff member</option>
                                     <option value="Tom">Tom</option>
                                     <option value="Sarah">Sarah</option>

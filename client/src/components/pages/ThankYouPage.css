@@ -1,0 +1,42 @@
+.container {
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 80%;
+    outline: none;
+    background: none;
+    border: none !important;
+}
+
+.card-body {
+    border: 1px solid #9A9DF7;
+    box-shadow: 0px 0px 10px rgba(154, 157, 247, 0.4);
+    border-radius: 15px;
+    width: 100%;
+}
+
+#thank-you-p {
+    font-size: 20px;
+}
+
+.thank-you-heading {
+    font-size: x-large;
+    font-weight: 400;
+}
+
+.booking-detail {
+    color: #6165F7;
+    font-weight: 700;
+}
+
+#see-you {
+    margin-top: 2em;
+    border-top: 2px double #9A9DF7; 
+    padding-top: 1em;
+    color: #6165F7;
+}

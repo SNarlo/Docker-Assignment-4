@@ -1,6 +1,6 @@
 import './ThankYouPage.css'
 import React from 'react'
-import { Card, Button } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import Header from '../header/Header'
 
 const ThankYouPage = (props) => {
@@ -8,16 +8,19 @@ const ThankYouPage = (props) => {
     return (
         <div>
             <Header />
-            <Card>
-                <Card.Body>
-                    <p>Thank you for making a booking with the brick & mortar store. Your booking details are below: </p>
-                    <h2>Booking for: {props.location.state.firstName} {props.location.state.lastName}</h2>
-                    <h2>Booking Date: {props.location.state.date}</h2>
-                    <h2>Booking Time: {props.location.state.time}</h2>
-                    <h2>With: {props.location.state.staff}</h2>
-                </Card.Body>
-                <Button>Sign Out</Button>
-            </Card>
+            <div className='container'>
+                <Card className='card-container'>
+                    <Card.Body className='card-body'>
+                        <p id='thank-you-p'>Thank you for making a booking with the brick & mortar store. Your booking details are below: </p>
+                        <h2 className='thank-you-heading'>Booking for: <span className='booking-detail'>{props.location.state.firstName} {props.location.state.lastName}</span></h2>
+                        <h2 className='thank-you-heading'>Booking Date: <span className='booking-detail'>{props.location.state.date}</span></h2>
+                        <h2 className='thank-you-heading'>Booking Time: <span className='booking-detail'>{props.location.state.time}</span></h2>
+                        <h2 className='thank-you-heading'>With: <span className='booking-detail'>{props.location.state.staff}</span></h2>
+                        <h1 id='see-you'>See You Then!</h1>
+                    </Card.Body>
+                </Card>
+            </div>
+            
         </div>
     )
 }
