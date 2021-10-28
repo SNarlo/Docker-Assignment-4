@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:5000/bookings'
+const baseUrl = 'http://34.70.98.0:5000/bookings'
 
 const getAllBookings = () => {
     const req = axios.get(baseUrl)
