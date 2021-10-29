@@ -111,6 +111,9 @@ const BookingForm = () => {
                                     <option value="Tom">Tom</option>
                                     <option value="Sarah">Sarah</option>
                                     <option value="James">James</option>
+                                    <option value="Steve">Steve</option>
+                                    <option value="Mary">Mary</option>
+                                    <option value="Stacy">Stacy</option>
                                 </Form.Control>
                             </Form.Group>
                             <Button id='booking-form-submit-btn' type='Submit' >Make a Booking!</Button>

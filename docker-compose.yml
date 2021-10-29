@@ -2,10 +2,8 @@ version: "3.4"
 services:
   react-app:
     image: react-app
-    restart: always
     build: 
       context: ./client
-      dockerfile: Dockerfile
     stdin_open: true
     ports: 
       - "3000:3000"
@@ -18,7 +16,6 @@ services:
     image: api-server
     build:
       context: ./server
-      dockerfile: Dockerfile
     ports:
       - "5000:5000"
     networks:

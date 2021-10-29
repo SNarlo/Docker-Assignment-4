@@ -19,15 +19,16 @@
 }
 
 #booking-card {
-    margin-top: 5%;
+    width: 100%;
+    margin-top: 1.5%;
     display: flex;
     flex-direction: column;
     padding: 5%;
-    box-shadow: 0p 3px 6px rgba(0, 0, 0, .2);
     border-radius: 10px;
 }
 
 .booking-card-body {
+    margin-top: 2.5%;
     text-align: left;
     display: flex;
     flex-direction: column;
